@@ -1,0 +1,362 @@
+/* Stiluri generale */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Asigură că pagina ocupă întreaga înălțime a ecranului */
+  background-image: url('https://rare-gallery.com/uploads/posts/988047-car-BMW-F10-BMW-5-Series.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fixează imaginea de fundal la scroll */
+  background-repeat: no-repeat; /* Previne repetarea imaginii de fundal */
+}
+
+.hero {
+  background: url('path/to/your/hero-background.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 80px 20px; /* Crește valoarea padding-ului pentru a coborî textul */
+  margin-top: 20px; /* Adaugă un mic spațiu dacă este necesar */
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Fundal pentru secțiunea Info */
+.info-section {
+  position: absolute; /* Poziționează secțiunea în partea de jos a paginii */
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundal negru transparent */
+  padding: 20px;
+  text-align: center;
+  color: white; /* Text alb */
+  z-index: 100; /* Asigură-te că este deasupra altor elemente */
+}
+
+/* Container pentru casete */
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Fiecare casetă */
+.info-item {
+  background: rgba(255, 255, 255, 0.1); /* Fundal alb semi-transparent */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Umbră pentru efect de plutire */
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  flex: 1;
+  color: white; /* Text alb */
+}
+
+.info-item h3 {
+  color: white; /* Text alb pentru titluri */
+  margin-bottom: 10px;
+}
+
+.info-item p {
+  color: rgba(255, 255, 255, 0.8); /* Text alb semi-transparent */
+}
+
+/* Responsivitate - Coloane verticale pe ecrane mici */
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+  }
+  .info-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* Header */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 20px; /* Reducem padding-ul pentru a face header-ul mai mic */
+  background-color: #333;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+header:hover {
+  opacity: 1;
+  padding: 5px 20px; /* Micșorăm padding-ul la hover */
+}
+
+/* Logo */
+header .logo h1 {
+  font-size: 50px; /* Ajustează dimensiunea fontului pentru logo */
+  font-weight: bold; /* Face fontul bold */
+  font-style: italic; /* Face fontul italic */
+  margin: 0;
+  display: inline-block; /* Asigură că literele sunt pe aceeași linie */
+}
+
+header .logo h1 a {
+  text-decoration: none; /* Elimină sublinierea pentru întregul link */
+}
+
+header .logo h1 .M {
+  color: white;
+}
+
+header .logo h1 .J {
+  color: red;
+  position: relative;
+  top: 10px; /* Ajustează această valoare pentru a coborî "J" la jumătatea literei "M" */
+}
+
+/* Meniul de navigație */
+nav {
+  margin-top: 10px; /* Reducem distanța dintre logo și meniu */
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+}
+
+header nav ul li {
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: font-size 0.3s ease-in-out;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+/* Mărirea dimensiunii logo-ului și a fonturilor la hover */
+header:hover .logo h1 .M,
+header:hover .logo h1 .J {
+  font-size: 45px; /* Micșorăm dimensiunea fontului logo-ului */
+}
+
+header:hover nav ul li a {
+  font-size: 18px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Secțiunea Info Contact cu bara neagră transparentă și text alb */
+/* Footer - Contact Info */
+.contact-info {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundal negru transparent */
+  padding: 40px 20px;
+  text-align: center;
+  color: white; /* Text alb */
+  position: fixed; /* Fixează secțiunea de contact în partea de jos */
+  bottom: 0; /* Împinge secțiunea exact la baza paginii */
+  width: 100%;
+  z-index: 100; /* Asigură că secțiunea este deasupra altor elemente */
+}
+
+.contact-info h2 {
+  font-size: 30px;
+  color: white; /* Text alb pentru titlu */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Umbra pentru a face textul mai vizibil */
+}
+
+.contact-info p {
+  font-size: 18px;
+  color: white; /* Text alb pentru paragrafe */
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Umbra pentru lizibilitate */
+}
+
+/* Responsivitate - La ecrane mici, textul devine mai compact */
+@media (max-width: 768px) {
+  .contact-info h2 {
+    font-size: 24px;
+  }
+  .contact-info p {
+    font-size: 16px;
+  }
+}
+
+/* Jante Section */
+.jante-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.jante-section h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Containerul de jante */
+.jante-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Elementul fiecărei jante */
+.janta-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.janta-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.janta-item h3 {
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+.janta-item p {
+  font-size: 16px;
+  color: #555;
+}
+
+.janta-item .price {
+  font-size: 18px;
+  color: #e67e22;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.janta-item .add-to-cart {
+  padding: 10px 20px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.janta-item .add-to-cart:hover {
+  background-color: #d35400;
+}
+
+/* Responsivitate - La ecrane mai mici, produsele se vor alinia vertical */
+@media (max-width: 768px) {
+  .jante-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .janta-item {
+    width: 80%;
+  }
+}
+
+/* Stilizarea imaginii jantei */
+.janta-item img.janta-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asigură că imaginea se potrivește perfect în container */
+}
+
+/* Secțiunea de Filtru */
+.filter-section {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+}
+
+.filter-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.filter-section form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.filter-section form label {
+  font-size: 16px;
+}
+
+.filter-section form select {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.filter-section form button {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filter-section form button:hover {
+  background-color: #d35400;
+}

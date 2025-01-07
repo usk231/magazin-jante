@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coșul Tău</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1><a href="index.html"><span class="M">M</span><span class="J">J</span></a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="jante.html">Jante</a></li>
+        <li><a href="cart.html">Coș</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="info.html">Info</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Secțiunea Coșului -->
+  <section class="cart-container">
+    <h2>Coșul Tău</h2>
+    <div id="cart-items"></div>
+    <button class="checkout-button">Finalizați Comanda</button>
+  </section>
+
+  <script>
+    // Afișăm produsele din coș
+    window.addEventListener('DOMContentLoaded', function() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cart-items');
+      
+      if (cartItems.length === 0) {
+        cartContainer.innerHTML = '<p>Coșul este gol.</p>';
+      } else {
+        cartItems.forEach(item => {
+          const cartItemElement = document.createElement('div');
+          cartItemElement.classList.add('cart-item');
+          
+          cartItemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-info">
+              <h3>${item.name}</h3>
+              <p class="price">${item.price} RON</p>
+              <p>Dimensiune: ${item.size}</p>
+            </div>
+          `;
+          
+          cartContainer.appendChild(cartItemElement);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
