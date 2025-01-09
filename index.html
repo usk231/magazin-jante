@@ -18,14 +18,8 @@
         <li><a href="jante.html">Jante</a></li>
         <li><a href="cart.html">Coș</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
-        <li><a href="info.html">Info</a></li>
       </ul>
     </nav>
-    <div class="search-container">
-      <input type="text" placeholder="Căutați jante..." id="search-bar">
-      <button onclick="searchJante()">Căutare</button>
-    </div>
     <div class="auth-links">
       <a href="register.html">Register</a> | <a href="login.html">Login</a>
     </div>
@@ -35,27 +29,6 @@
   <section class="hero">
     <h2>Descoperă jantele perfecte pentru mașina ta!</h2>
     <button onclick="window.location.href='catalog.html'">Vezi produsele</button>
-  </section>
-
-  <!-- Secțiune Info -->
-  <section class="info-section">
-    <div class="info-container">
-      <!-- Curățare și Întreținere -->
-      <div class="info-item">
-        <h3>Curățare și Întreținere</h3>
-        <p>Pentru a păstra jantele în stare optimă, evită curățătorii abrazivi și substanțele chimice agresive. Curăță-le regulat cu o cârpă moale și păstrează-le într-un loc rece și uscat.</p>
-      </div>
-      <!-- Repararea Jantelor -->
-      <div class="info-item">
-        <h3>Repararea Jantelor</h3>
-        <p>Reparațiile pot anula garanția dacă se folosesc tehnici precum sudura, gravura, șlefuirea sau temperaturi excesive. De aceea, JR-Wheels recomandă evitarea reparării jantelor.</p>
-      </div>
-      <!-- Garanția Calității -->
-      <div class="info-item">
-        <h3>Garanția Calității</h3>
-        <p>Magazin-Jante garantează calitatea superioară a jantelor sale, care sunt supuse unor teste riguroase pentru a asigura durabilitatea și performanța pe termen lung.</p>
-      </div>
-    </div>
   </section>
 
   <!-- Scriptul pentru schimbarea fundalului -->
@@ -82,16 +55,6 @@
 
     // Apelăm funcția pentru a seta fundalul inițial
     changeBackground();
-
-    // Funcție pentru search bar
-    function searchJante() {
-      const query = document.getElementById("search-bar").value;
-      if (query) {
-        window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-      } else {
-        alert("Introduceti un termen de cautare!");
-      }
-    }
   </script>
 
 </body>

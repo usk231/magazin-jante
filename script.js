@@ -15,14 +15,25 @@ function changeBackground() {
   currentIndex = (currentIndex + 1) % backgrounds.length;
 }
 
-// Funcție pentru search bar
-function searchJante() {
-  const query = document.getElementById("search-bar").value;
-  if (query) {
-    window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-  } else {
-    alert("Introduceti un termen de cautare!");
-  }
+// Funcție pentru a șterge un produs din coș
+function removeItemFromCart(button) {
+  const cartItem = button.closest('.cart-item'); // Găsim elementul care conține produsul
+  cartItem.style.transition = "transform 0.2s ease-in-out";
+  cartItem.style.transform = "scale(0)"; // Aplica efect de dispariție
+  setTimeout(() => {
+    cartItem.remove(); // Elimină elementul după efect
+    updateTotal(); // Actualizează totalul după eliminare
+  }, 200); // Așteaptă durata animației pentru a șterge efectiv
+}
+
+// Funcție pentru a actualiza totalul coșului (opțional)
+function updateTotal() {
+  let total = 0;
+  const prices = document.querySelectorAll('.cart-item .price');
+  prices.forEach(price => {
+    total += parseFloat(price.textContent.replace('lei', '').trim());
+  });
+  document.getElementById('total-price').textContent = total.toFixed(2) + ' lei';
 }
 
 // Schimbăm fundalul la fiecare 5 secunde

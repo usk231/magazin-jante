@@ -25,9 +25,10 @@
   </header>
 
   <!-- Secțiunea Coșului -->
-  <section class="cart-container">
+  <section class="cart-section">
     <h2>Coșul Tău</h2>
     <div id="cart-items"></div>
+    <p id="total-price"></p>
     <button class="checkout-button">Finalizați Comanda</button>
   </section>
 
@@ -36,11 +37,15 @@
     window.addEventListener('DOMContentLoaded', function() {
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
       const cartContainer = document.getElementById('cart-items');
+      const totalPriceElement = document.getElementById('total-price');
       
       if (cartItems.length === 0) {
         cartContainer.innerHTML = '<p>Coșul este gol.</p>';
+        totalPriceElement.innerHTML = '';
       } else {
-        cartItems.forEach(item => {
+        let totalPrice = 0;
+        
+        cartItems.forEach((item, index) => {
           const cartItemElement = document.createElement('div');
           cartItemElement.classList.add('cart-item');
           
@@ -50,10 +55,28 @@
               <h3>${item.name}</h3>
               <p class="price">${item.price} RON</p>
               <p>Dimensiune: ${item.size}</p>
+              <button class="remove-item" data-index="${index}">Șterge</button>
             </div>
           `;
           
           cartContainer.appendChild(cartItemElement);
+          
+          // Calculăm totalul
+          totalPrice += parseFloat(item.price);
+        });
+
+        // Afișăm totalul
+        totalPriceElement.innerHTML = `Total: ${totalPrice.toFixed(2)} RON`;
+
+        // Adăugăm eveniment pentru a șterge produsele din coș
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const index = button.getAttribute('data-index');
+            cartItems.splice(index, 1); // Îndepărtăm elementul din coș
+            localStorage.setItem('cart', JSON.stringify(cartItems)); // Actualizăm localStorage
+            location.reload(); // Reîncărcăm pagina pentru a actualiza coșul
+          });
         });
       }
     });

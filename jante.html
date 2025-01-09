@@ -82,6 +82,9 @@
         <button class="add-to-cart" data-name="JR15" data-price="3800" data-image="https://jr-wheels.com/zdjecia/2024/04/17/846/58/s_24430/JR_Wheels_JR15_19x10_ET35_Blank_Silver_Machi.jpg" data-size="15", "16", "17", "18", "19">Adaugă în coș</button>
       </div>
     </div>
+
+    <!-- Buton Vezi Produsele -->
+    <button id="viewProductsButton">Vezi Produsele</button>
   </section>
 
   <script>
@@ -108,6 +111,12 @@
         // Afișăm un mesaj de succes
         alert(`${product.name} a fost adăugat în coș!`);
       });
+    });
+
+    // Redirecționare la pagina jante.html când butonul este apăsat
+    document.getElementById('viewProductsButton').addEventListener('click', function() {
+      window.location.href = 'pages/jante.html';
+
     });
   </script>
 
