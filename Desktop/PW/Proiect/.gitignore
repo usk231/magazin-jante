@@ -1,0 +1,20 @@
+# Ignoră directoarele personale și fișierele de sistem
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.class
+
+# Ignoră directoare specifice sistemului Windows
+AppData/
+Desktop.ini
+ntuser.dat*
+NTUSER.DAT*
+
+# Ignoră directoare care nu sunt legate de proiect
+../../../*
+../../*
+
+# Ignoră submodulele neintenționate
+magazin-jante
